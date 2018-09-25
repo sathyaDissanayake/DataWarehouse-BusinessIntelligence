@@ -1,0 +1,941 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{344A8FD5-F189-48B0-A029-26720F664A43}" Name="BorrowerDataProfiling">
+      <DtsConnectionManagerID>BorrowerDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{44D7F0F5-D189-4B08-93AA-D5E4C7C90CCE}" Name="CoreDataProfiling">
+      <DtsConnectionManagerID>CoreDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{FA190271-A34C-4A2A-BB6A-7426B4AE18B4}" Name="LoanDataProfiling">
+      <DtsConnectionManagerID>LoanDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{CF339B84-1E94-49C3-927E-70FF16931DD2}" Name="SERVER2016.Lending_Club_Loan_Data_Warehouse">
+      <DtsConnectionManagerID>SERVER2016.Lending_Club_Loan_Data_Warehouse</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <FunctionalDependencyProfileRequest ID="FDReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="BorrowerStaging" />
+        <DeterminantColumns>
+          <Column IsWildCard="true" />
+        </DeterminantColumns>
+        <DependentColumn IsWildCard="true" />
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <FDStrengthThreshold>0.95</FDStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </FunctionalDependencyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmploymentDuration" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="AnnualIncome" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="HomeOwnership" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmployeeTitle" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>13236</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>137225</MinValue>
+        <MaxValue>40860827</MaxValue>
+        <Mean>24019253.3984501</Mean>
+        <StdDev>8825133.28455735</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="AnnualIncome" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>3000</MinValue>
+        <MaxValue>7500000</MaxValue>
+        <Mean>74854.3089328941</Mean>
+        <StdDev>55547.4786340366</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmploymentDuration" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>9</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>79505</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>12019</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>14593</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>111530</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>17981</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="HomeOwnership" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>8</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>23007</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>92684</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>119937</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmployeeTitle" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>1</MinLength>
+        <MaxLength>40</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>4981</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>2454</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>9915</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>14202</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>3351</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>32</Length>
+            <Count>1440</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>3446</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>8364</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>836</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>5332</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>6635</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>3584</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>539</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>16492</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>1</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>5832</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>10922</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>2035</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>11575</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>1497</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>9046</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>4276</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>658</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>8938</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>7508</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>6750</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>1131</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>39</Length>
+            <Count>477</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>15431</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>2794</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>10998</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>31</Length>
+            <Count>1889</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>950</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>40</Length>
+            <Count>850</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>6355</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>7159</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>2892</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>12748</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>37</Length>
+            <Count>642</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>7464</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <KeyColumns>
+          <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>235628</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmploymentDuration" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>12</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>n/a</Value>
+            <Count>12019</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>6 years</Value>
+            <Count>11821</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3 years</Value>
+            <Count>18267</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>10+ years</Value>
+            <Count>79505</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1 year</Value>
+            <Count>14593</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>7 years</Value>
+            <Count>13099</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>9 years</Value>
+            <Count>9424</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2 years</Value>
+            <Count>20487</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5 years</Value>
+            <Count>13051</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4 years</Value>
+            <Count>13528</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>&lt; 1 year</Value>
+            <Count>17981</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8 years</Value>
+            <Count>11853</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="HomeOwnership" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>4</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>MORTGAGE</Value>
+            <Count>119937</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OWN</Value>
+            <Count>23006</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RENT</Value>
+            <Count>92684</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmployeeTitle" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>62074</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>CNA</Value>
+            <Count>304</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>mechanic</Value>
+            <Count>714</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Accountant</Value>
+            <Count>785</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>registered nurse</Value>
+            <Count>2856</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LPN</Value>
+            <Count>351</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Executive Director</Value>
+            <Count>373</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maintenance</Value>
+            <Count>414</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Service manager</Value>
+            <Count>327</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Attorney</Value>
+            <Count>824</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Controller</Value>
+            <Count>493</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Legal Secretary</Value>
+            <Count>246</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Professor</Value>
+            <Count>384</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Administrator</Value>
+            <Count>446</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Owner</Value>
+            <Count>2492</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Account Manager</Value>
+            <Count>706</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Management</Value>
+            <Count>240</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bartender</Value>
+            <Count>292</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RN</Value>
+            <Count>2080</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Software Engineer</Value>
+            <Count>521</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vice President</Value>
+            <Count>980</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cashier</Value>
+            <Count>298</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>firefighter</Value>
+            <Count>281</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Financial Advisor</Value>
+            <Count>304</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Social Worker</Value>
+            <Count>323</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>welder</Value>
+            <Count>281</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Laborer</Value>
+            <Count>330</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Teacher</Value>
+            <Count>5747</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paralegal</Value>
+            <Count>545</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Legal Assistant</Value>
+            <Count>330</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Store Manager</Value>
+            <Count>925</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Director</Value>
+            <Count>1117</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Instructor</Value>
+            <Count>251</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Financial Analyst</Value>
+            <Count>317</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Partner</Value>
+            <Count>237</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>cook</Value>
+            <Count>245</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>customer service</Value>
+            <Count>574</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>clerk</Value>
+            <Count>462</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Office Manager</Value>
+            <Count>1606</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Physical Therapist</Value>
+            <Count>241</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>IT Manager</Value>
+            <Count>364</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>analyst</Value>
+            <Count>580</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>General Manager</Value>
+            <Count>1474</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Business Analyst</Value>
+            <Count>418</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carpenter</Value>
+            <Count>237</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>District manager</Value>
+            <Count>359</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Warehouse Manager</Value>
+            <Count>243</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>machine operator</Value>
+            <Count>455</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Supervisor</Value>
+            <Count>2535</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales manager</Value>
+            <Count>902</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Engineer</Value>
+            <Count>1083</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Secretary</Value>
+            <Count>379</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Associate</Value>
+            <Count>310</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Administrative Assistant</Value>
+            <Count>852</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Branch Manager</Value>
+            <Count>554</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Account executive</Value>
+            <Count>465</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Director of Operations</Value>
+            <Count>333</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>receptionist</Value>
+            <Count>253</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Respiratory Therapist</Value>
+            <Count>265</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Officer</Value>
+            <Count>274</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Driver</Value>
+            <Count>2027</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>foreman</Value>
+            <Count>493</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>bookkeeper</Value>
+            <Count>269</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Machinist</Value>
+            <Count>382</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Executive Assistant</Value>
+            <Count>631</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales</Value>
+            <Count>2201</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Medical Assistant</Value>
+            <Count>319</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Consultant</Value>
+            <Count>456</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Associate</Value>
+            <Count>352</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Program Manager</Value>
+            <Count>468</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Technician</Value>
+            <Count>786</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>sales rep</Value>
+            <Count>244</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Project Manager</Value>
+            <Count>1628</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Correctional Officer</Value>
+            <Count>306</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Principal</Value>
+            <Count>389</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Operations Manager</Value>
+            <Count>909</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>pharmacist </Value>
+            <Count>351</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>server</Value>
+            <Count>556</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>police officer</Value>
+            <Count>970</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Operator</Value>
+            <Count>445</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>truck driver</Value>
+            <Count>1298</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Superintendent</Value>
+            <Count>365</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>President</Value>
+            <Count>1044</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nurse Practitioner</Value>
+            <Count>251</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Production manager </Value>
+            <Count>274</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Assistant Manager</Value>
+            <Count>701</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CEO</Value>
+            <Count>369</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>letter carrier</Value>
+            <Count>322</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>security officer</Value>
+            <Count>267</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Agent</Value>
+            <Count>240</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Electrician</Value>
+            <Count>506</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Team Leader</Value>
+            <Count>236</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Manager</Value>
+            <Count>5202</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Accounting Manager</Value>
+            <Count>254</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Physician</Value>
+            <Count>319</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nurse</Value>
+            <Count>737</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmploymentDuration" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>10+ YEARS</RegexText>
+            <Frequency>34</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d YEARS</RegexText>
+            <Frequency>47</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>&lt; \d YEAR</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d YEAR</RegexText>
+            <Frequency>6</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>N/A</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="HomeOwnership" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>MORTGAGE</RegexText>
+            <Frequency>53</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>RENT</RegexText>
+            <Frequency>38</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>OWN</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <Column Name="EmployeeTitle" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ MANAGER</RegexText>
+            <Frequency>8</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>35</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>28</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>16</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+</RegexText>
+            <Frequency>4</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <DeterminantColumns>
+          <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="EmployeeTitle" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <DeterminantColumns>
+          <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="HomeOwnership" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="BorrowerStaging" RowCount="235628" />
+        <DeterminantColumns>
+          <Column Name="MemberID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="EmploymentDuration" SqlDbType="NVarChar" MaxLength="255" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

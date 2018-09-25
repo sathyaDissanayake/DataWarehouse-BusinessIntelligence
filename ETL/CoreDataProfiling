@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{344A8FD5-F189-48B0-A029-26720F664A43}" Name="BorrowerDataProfiling">
+      <DtsConnectionManagerID>BorrowerDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{44D7F0F5-D189-4B08-93AA-D5E4C7C90CCE}" Name="CoreDataProfiling">
+      <DtsConnectionManagerID>CoreDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{FA190271-A34C-4A2A-BB6A-7426B4AE18B4}" Name="LoanDataProfiling">
+      <DtsConnectionManagerID>LoanDataProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{CF339B84-1E94-49C3-927E-70FF16931DD2}" Name="SERVER2016.Lending_Club_Loan_Data_Warehouse">
+      <DtsConnectionManagerID>SERVER2016.Lending_Club_Loan_Data_Warehouse</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <FunctionalDependencyProfileRequest ID="FDReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table Schema="dbo" Table="CoreDataStaging" />
+        <DeterminantColumns>
+          <Column IsWildCard="true" />
+        </DeterminantColumns>
+        <DependentColumn IsWildCard="true" />
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <FDStrengthThreshold>0.95</FDStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </FunctionalDependencyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LoanAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="FundedAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="FundedAmountInvestor" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="InterestRate" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="Installment" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalPayment" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalPaymentInvestor" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="RecoveryFee" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="CollectionRecoveryFee" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LoanIssueDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LastPaymentAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LastPaymentDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>143</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalCurrentBalance" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LoanAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1000</MinValue>
+        <MaxValue>35000</MaxValue>
+        <Mean>14870.1774619315</Mean>
+        <StdDev>8438.31222871255</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="FundedAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1000</MinValue>
+        <MaxValue>35000</MaxValue>
+        <Mean>14870.1774619315</Mean>
+        <StdDev>8438.31222871255</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="FundedAmountInvestor" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>950</MinValue>
+        <MaxValue>35000</MaxValue>
+        <Mean>14865.3548177636</Mean>
+        <StdDev>8435.51904036653</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="InterestRate" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>6</MinValue>
+        <MaxValue>26.06</MaxValue>
+        <Mean>13.7712449709085</Mean>
+        <StdDev>4.32552305538208</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="Installment" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>23.36</MinValue>
+        <MaxValue>1409.99</MaxValue>
+        <Mean>442.481831064256</Mean>
+        <StdDev>245.049064364201</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalPayment" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>48507.48</MaxValue>
+        <Mean>9454.48377387345</Mean>
+        <StdDev>6965.26788283087</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalPaymentInvestor" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>48438.18</MaxValue>
+        <Mean>9451.20387144181</Mean>
+        <StdDev>6962.52945606143</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="RecoveryFee" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>20502.14</MaxValue>
+        <Mean>51.4541748858369</Mean>
+        <StdDev>418.817313282563</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="CollectionRecoveryFee" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>3089.5001</MaxValue>
+        <Mean>6.97523014667158</Mean>
+        <StdDev>65.3554203583819</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LoanIssueDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>2014-01-01T00:00:00.0000000</MinValue>
+        <MaxValue>2014-12-01T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LastPaymentAmount" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>36234.44</MaxValue>
+        <Mean>2767.35243617065</Mean>
+        <StdDev>5537.82206316236</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LastPaymentDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>2014-02-01T00:00:00.0000000</MinValue>
+        <MaxValue>2016-01-01T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="TotalCurrentBalance" SqlDbType="Float" MaxLength="0" Precision="53" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>4026405</MaxValue>
+        <Mean>139802.723691582</Mean>
+        <StdDev>153022.452522455</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LoanIssueDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>12</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>2014-02-01T00:00:00.0000000</Value>
+            <Count>15269</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-05-01T00:00:00.0000000</Value>
+            <Count>19099</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-09-01T00:00:00.0000000</Value>
+            <Count>10606</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-06-01T00:00:00.0000000</Value>
+            <Count>17179</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-01-01T00:00:00.0000000</Value>
+            <Count>15628</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-11-01T00:00:00.0000000</Value>
+            <Count>25054</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-08-01T00:00:00.0000000</Value>
+            <Count>18814</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-07-01T00:00:00.0000000</Value>
+            <Count>29306</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-10-01T00:00:00.0000000</Value>
+            <Count>38782</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-04-01T00:00:00.0000000</Value>
+            <Count>19071</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-12-01T00:00:00.0000000</Value>
+            <Count>10307</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-03-01T00:00:00.0000000</Value>
+            <Count>16513</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{CF339B84-1E94-49C3-927E-70FF16931DD2}</DataSourceID>
+        <Table DataSource="SERVER2016" Database="Lending_Club_Loan_Data_Warehouse" Schema="dbo" Table="CoreDataStaging" RowCount="235628" />
+        <Column Name="LastPaymentDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>24</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>2015-04-01T00:00:00.0000000</Value>
+            <Count>4939</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-05-01T00:00:00.0000000</Value>
+            <Count>591</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-09-01T00:00:00.0000000</Value>
+            <Count>1855</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-06-01T00:00:00.0000000</Value>
+            <Count>953</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-07-01T00:00:00.0000000</Value>
+            <Count>5878</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-10-01T00:00:00.0000000</Value>
+            <Count>5631</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2016-01-01T00:00:00.0000000</Value>
+            <Count>125397</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-03-01T00:00:00.0000000</Value>
+            <Count>4814</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-11-01T00:00:00.0000000</Value>
+            <Count>2372</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-08-01T00:00:00.0000000</Value>
+            <Count>1615</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-12-01T00:00:00.0000000</Value>
+            <Count>42052</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-06-01T00:00:00.0000000</Value>
+            <Count>5023</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-02-01T00:00:00.0000000</Value>
+            <Count>3627</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-07-01T00:00:00.0000000</Value>
+            <Count>1275</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-10-01T00:00:00.0000000</Value>
+            <Count>2429</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-09-01T00:00:00.0000000</Value>
+            <Count>5076</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-05-01T00:00:00.0000000</Value>
+            <Count>4935</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-04-01T00:00:00.0000000</Value>
+            <Count>418</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-12-01T00:00:00.0000000</Value>
+            <Count>2836</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2014-03-01T00:00:00.0000000</Value>
+            <Count>271</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-01-01T00:00:00.0000000</Value>
+            <Count>3585</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-08-01T00:00:00.0000000</Value>
+            <Count>4930</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2015-11-01T00:00:00.0000000</Value>
+            <Count>4847</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
